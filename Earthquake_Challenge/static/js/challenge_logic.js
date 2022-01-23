@@ -142,11 +142,13 @@ legend.onAdd = function() {
   // Finally, we our legend to the map.
   legend.addTo(map);
 
-
   // 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
   d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(data) {
     // Creating a GeoJSON layer with the retrieved data.
-    L.geoJson(data).addTo(tectonicplates);
+    L.geoJson(data, 
+      {color: "#ff0000",
+      weight: 2
+    }).addTo(tectonicplates);
   });
   tectonicplates.addTo(map);
 });
